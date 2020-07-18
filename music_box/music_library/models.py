@@ -97,13 +97,13 @@ class Album(models.Model):
     '''
     name = models.CharField(max_length=200)
     composed_by = models.ManyToManyField(
-        Artist, related_name="album_composed_by")
+        Artist)
     released_by = models.ManyToManyField(
         Company, related_name="album_released_by")
     genre = models.ForeignKey(
-        Genre, related_name="album_genre", on_delete=models.CASCADE)
+        Genre, on_delete=models.CASCADE)
     language = models.ForeignKey(
-        Language, related_name="album_language", on_delete=models.CASCADE)
+        Language, on_delete=models.CASCADE)
     rating = models.IntegerField(default=0)
     cover = models.URLField(null=True)
     casting = models.ManyToManyField(Artist, related_name="album_casting")
@@ -130,9 +130,9 @@ class Track(models.Model):
     '''
     title = models.CharField(max_length=300)
     alt_title = models.CharField(max_length=300)
-    artist = models.ManyToManyField(Artist, related_name="track_artist")
+    artist = models.ManyToManyField(Artist)
     album = models.ForeignKey(
-        Album, related_name="track_album", on_delete=models.CASCADE)
+        Album, on_delete=models.CASCADE)
     url = models.URLField(unique=True)
     rating = models.IntegerField(default=0)
     length = models.FloatField(default=0)
@@ -158,8 +158,8 @@ class Lyric(models.Model):
     This class used to hold the track lyrics information   
     '''
     track = models.ForeignKey(
-        Track, related_name="lyric_track", on_delete=models.CASCADE)
-    author = models.ManyToManyField(Artist, related_name="lyric_author")
+        Track, on_delete=models.CASCADE)
+    author = models.ManyToManyField(Artist)
     description = models.URLField(null=True)
 
     class Meta:
