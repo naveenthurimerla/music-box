@@ -76,12 +76,19 @@ WSGI_APPLICATION = 'music_box.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'djongo',
+#        'NAME': 'music_box',
+#        'HOST': 'localhost',
+#        'PORT': 27017,
+#    }
+#}
+
 DATABASES = {
     'default': {
-        'ENGINE': 'djongo',
-        'NAME': 'music_box',
-        'HOST': 'localhost',
-        'PORT': 27017,
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
