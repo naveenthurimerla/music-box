@@ -6,7 +6,7 @@ attrs==19.3.0
 black==19.10b0
 click==7.1.2
 colorama==0.4.3
-Django==3.0.14
+Django==3.1.13
 graphene==2.1.8
 graphene-django==2.12.1
 graphql-core==2.3.2
